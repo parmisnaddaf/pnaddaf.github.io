@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Popup Example</title>
+    <style>
+        /* Style for the modal */
+        #myModal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        /* Style for the overlay */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        /* Close button style */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="https://via.placeholder.com/300" alt="Sample Image" id="myImage">
+
+    <!-- The Modal -->
+    <div id="myModal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>Hi</p>
+    </div>
+
+    <!-- The overlay -->
+    <div id="overlay"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const image = document.getElementById('myImage');
+            const modal = document.getElementById('myModal');
+            const overlay = document.getElementById('overlay');
+
+            image.addEventListener('click', function () {
+                openModal();
+            });
+
+            function openModal() {
+                modal.style.display = 'block';
+                overlay.style.display = 'block';
+            }
+
+            function closeModal() {
+                modal.style.display = 'none';
+                overlay.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
